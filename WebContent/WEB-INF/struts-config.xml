@@ -1,0 +1,6 @@
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+  <controller processorClass="org.apache.struts.action.RequestProcessor"/>
+  <message-resources parameter="struts.example.MessageResources" null="false"/>
+</struts-config>
