@@ -24,6 +24,8 @@
         <form-bean name="productReviewForm" type="com.crudDemo.struts.form.ProductsForm"></form-bean>
         <form-bean name="manufacturerForm" type="com.crudDemo.struts.form.ProductsForm"></form-bean>
 
+	    <form-bean name="customerForm" type="com.crudDemo.struts.form.CustomerForm"></form-bean>
+
     </form-beans>
  
     <global-exceptions>
@@ -203,10 +205,33 @@
 	    	 scope="request">
 	        <forward name="success" path="/productreview.jsp" />
 	    </action>
+
+		<action 
+    	     path="/ProcessCustomer" 
+    	     name="customerForm" 
+	    	 type="com.crudDemo.struts.action.CustomerAction" 
+	    	 input="/CustomerForm.jsp" 
+	    	 scope="request">
+	        <forward name="success" path="/CustomerForm.jsp" />
+	    </action>
+	    
+	    <action 
+    	     path="/searchCity" 
+	    	 type="com.crudDemo.struts.action.GetCitiesNamesAction" 
+	    	 scope="request">
+	    </action>
+	    
 	    
 		
     </action-mappings>
     
     <controller processorClass="org.apache.struts.action.RequestProcessor" />
     <message-resources parameter="com.crudDemo.props.Common" null="false"/>
+
+	    <!-- Validator Configuration -->
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/validator-rules.xml,
+					/WEB-INF/validation.xml" />
+	</plug-in>
 </struts-config>
