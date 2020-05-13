@@ -9,6 +9,19 @@
         <form-bean name="simpleForm" type="com.crudDemo.struts.form.SimpleForm"/>
 		
 		<form-bean name="AddressForm" type="com.crudDemo.struts.form.AddressForm"/>
+
+		<form-bean name="carSearchForm" type="com.crudDemo.struts.form.CarSearchForm"></form-bean>
+		
+		         <!-- DynaActionForm Bean for Dyna -->
+        <form-bean name="dynaRegistrationForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="name" type="java.lang.String" initial="Name" />
+            <form-property name="username" type="java.lang.String" initial="User Name"/>
+            <form-property name="password" type="java.lang.String"/>
+            <form-property name="rePassword" type="java.lang.String"/>
+        </form-bean>
+
+
+
     </form-beans>
  
     <global-exceptions>
@@ -133,7 +146,34 @@
    			validate="true">
   			<forward name="success" path="/Address.jsp"/>
 		</action>
-		
+
+		<action 
+    	     name="dynaRegistrationForm" 
+    	     path="/registrationdyna" 
+	    	 type="com.crudDemo.struts.action.RegistrationDynaAction" 
+	    	 input="/RegistrationDynaForm.jsp" 
+	    	 scope="request">
+	        <forward name="success" path="/SuccessDynaForm.jsp" />
+	    </action>
+
+	    <action 
+    	     name="carSearchForm" 
+    	     path="/CarSearch" 
+	    	 type="com.crudDemo.struts.action.PrepareCarSearchAction" 
+	    	 input="/CarSearch.jsp" 
+	    	 scope="request">
+	        <forward name="success" path="/CarSearch.jsp" />
+	    </action>	
+
+	    <action 
+    	     name="carSearchForm" 
+    	     path="/CarSearchSubmit" 
+	    	 type="com.crudDemo.struts.action.CarSearchAction" 
+	    	 input="/CarSearch.jsp" 
+	    	 scope="request">
+	        <forward name="success" path="/Success.jsp" />
+	    </action>
+	    
 		
     </action-mappings>
     
