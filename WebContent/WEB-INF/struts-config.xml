@@ -1,16 +1,34 @@
-<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
 <struts-config>
     
     <form-beans>
         <form-bean name="RegistrationForm" type="com.crudDemo.struts.form.RegistrationForm" />
         
         <form-bean name="userForm" type="com.crudDemo.struts.form.UserForm"/>
+       
+        <form-bean name="simpleForm" type="com.crudDemo.struts.form.SimpleForm"/>
+		
+		<form-bean name="AddressForm" type="com.crudDemo.struts.form.AddressForm"/>
     </form-beans>
  
-    <global-forwards>
-        <forward name="mainpage" path="/index.jsp" />
-    </global-forwards>
- 
+    <global-exceptions>
+    
+    	<exception type="java.lang.NullPointerException" key="error.required" path="/exception.jsp"/>
+    	
+		<exception key="error.insufficientbalance" 
+          type="com.crudDemo.struts.exception.InsufficentBalanceException"
+       	  handler="com.crudDemo.struts.exception.PaymentExceptionHandler"
+          path="/exception.jsp"/>
+		
+		<exception
+	      key="error.application.system.io"
+	      type="java.io.IOException"
+	      handler="com.crudDemo.struts.exception.ApplicationSystemExceptionHandler"
+	      path="/applicationsystemexception.jsp" />
+		
+	</global-exceptions>
+	
+    
     <action-mappings>
                
         <action path="/IncludeContent"
@@ -59,6 +77,64 @@
 			>
 			<forward name="success" path="/multi-language.jsp"/>
 		</action>
+		
+		
+		<action path="/MappingDispatchActionXML"
+			type="com.crudDemo.struts.action.MappingDispatchActionExample"
+			parameter="generateXML">
+ 			<forward name="success" path="/MappingDispatchExample.jsp"/>
+ 		</action>
+		
+		<action path="/MappingDispatchActionJSON"
+			type="com.crudDemo.struts.action.MappingDispatchActionExample"
+			parameter="generateJSON">
+ 			<forward name="success" path="/MappingDispatchExample.jsp"/>
+		</action>
+		
+		<action path="/TestMappingDispatchAction"
+			type="org.apache.struts.actions.ForwardAction"
+			parameter="/MappingDispatchExampleTestForm.jsp">
+		</action>
+		
+		<action
+			path="/Locale-LookupDispatchExample"
+			type="com.crudDemo.struts.action.DispatchActionExample"
+			name="userForm"
+			parameter="method"
+			validate="false"
+			>
+			<forward name="success" path="/LookupDispatchExampleForm.jsp"/>
+		</action>
+		
+    	<action     	    
+    	    parameter="methodToCall" 
+    	    path="/UserAction" 
+    	    name="userForm"
+    	    scope="session" 
+    	    input="/LookupDispatchExampleForm.jsp"
+    	    validate="false"
+    	    type="com.crudDemo.struts.action.LookupDispatchActionExample">
+        	<forward name="success" path="/LookupDispatchExampleForm.jsp" />
+    	</action>
+		
+    	<action 
+    	    path="/TestException" 
+    	    type="com.crudDemo.struts.action.SimpleAction" 
+    	    name="simpleForm">
+        	<forward name="success" path="/index.jsp" />
+        </action>
+
+		<action
+   			path="/Address"
+   			type="com.crudDemo.struts.action.AddressAction"
+   			name="AddressForm"
+   			scope="request"
+   			input="/Address.jsp" 
+   			validate="true">
+  			<forward name="success" path="/Address.jsp"/>
+		</action>
+		
+		
     </action-mappings>
     
     <controller processorClass="org.apache.struts.action.RequestProcessor" />

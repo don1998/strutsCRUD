@@ -14,5 +14,6 @@
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/struts1"/>
+	<classpathentry kind="lib" path="javax.mail.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
