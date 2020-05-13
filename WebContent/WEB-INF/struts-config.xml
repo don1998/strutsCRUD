@@ -35,11 +35,11 @@
         type="org.apache.struts.actions.IncludeAction"
          parameter="/LegacyIncludeServlet"/>
         
-        <action path="/includePage" type="org.apache.struts.actions.IncludeAction" parameter="index.jsp"/>
+        <action path="/includePage" 
+				type="org.apache.struts.actions.IncludeAction" 
+				parameter="index.jsp"/>
         
-		<action path="/showRegistrationForm"
-				parameter="/RegistrationForm.jsp"
-				type="org.apache.struts.actions.ForwardAction" />
+
 		
 		<action path="/showRegistrationForm"
 				parameter="/RegistrationForm.jsp"
@@ -54,8 +54,7 @@
             <forward name="success" path="/SuccessRegistration.jsp" />
             <forward name="error" path="/ErrorRegistration.jsp" />
             <forward name="subSystemLogin" redirect="true" path="/SubSystemLogin.jsp" />
-            <forward name="doRedirect" path="/RedirectSomewhere.jsp" />
-            
+            <forward name="doRedirect" path="/RedirectSomewhere.jsp" />    
         </action>
 
         <action
@@ -123,16 +122,6 @@
     	    name="simpleForm">
         	<forward name="success" path="/index.jsp" />
         </action>
-
-		<action
-   			path="/Address"
-   			type="com.crudDemo.struts.action.AddressAction"
-   			name="AddressForm"
-   			scope="request"
-   			input="/Address.jsp" 
-   			validate="true">
-  			<forward name="success" path="/Address.jsp"/>
-		</action>
 		
 		
     </action-mappings>

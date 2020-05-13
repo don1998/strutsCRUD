@@ -10,14 +10,12 @@
 
 <body>
 
-    <jsp:useBean id="user" scope="request" type="com.crudDemo.app.model.User"></jsp:useBean>
+    <jsp:useBean id="user" scope="request" class="com.demo.app.model.User"></jsp:useBean>
     <h1>Find Items</h1>
 
     <form action="/ExampleFormServlet" method="get">
-        Name: <input type="text" name="userName" value="<jsp:getProperty name=" user" property="name" />"/><br>
-        Password: <input type="text" name="userPass" value="<jsp:getProperty name=" user" property="password" />"/><br>
-        Email: <input type="text" name="userEmail" value="<jsp:getProperty name=" user" property="email" />"/><br>
-        Country: <input type="text" name="userCountry" value="<jsp:getProperty name=" user" property="country" />"/><br>
+        Name: <input type="text" name="userName" value="<jsp:getProperty name="user" property="name" />"/><br>
+        Password: <input type="text" name="userPass" value="<jsp:getProperty name="user" property="password" />"/><br>
         <input type="submit" value="submit" />
     </form>
 
