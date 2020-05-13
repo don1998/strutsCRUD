@@ -10,7 +10,7 @@
 
 <body>
 
-    <jsp:useBean id="user" scope="request" class="com.demo.app.model.User"></jsp:useBean>
+    <jsp:useBean id="user" scope="request" class="com.crudDemo.app.model.User"></jsp:useBean>
     <h1>Find Items</h1>
 
     <form action="/ExampleFormServlet" method="get">

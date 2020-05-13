@@ -20,7 +20,9 @@
             <form-property name="rePassword" type="java.lang.String"/>
         </form-bean>
 
-
+        <form-bean name="productForm" type="com.crudDemo.struts.form.ProductsForm"></form-bean>
+        <form-bean name="productReviewForm" type="com.crudDemo.struts.form.ProductsForm"></form-bean>
+        <form-bean name="manufacturerForm" type="com.crudDemo.struts.form.ProductsForm"></form-bean>
 
     </form-beans>
  
@@ -172,6 +174,34 @@
 	    	 input="/CarSearch.jsp" 
 	    	 scope="request">
 	        <forward name="success" path="/Success.jsp" />
+	    </action>
+
+		  <!-- Product -->
+	    <action 
+    	     path="/AddProduct" 
+    	     name="productForm" 
+	    	 type="com.crudDemo.struts.action.ProductAction" 
+	    	 input="/product.jsp" 
+	    	 scope="request">
+	        <forward name="success" path="/product.jsp" />
+	    </action>
+	    
+	    <action 
+    	     path="/AddManufacturerToProduct" 
+    	     name="manufacturerForm" 
+	    	 type="com.crudDemo.struts.action.ManufacturerAction" 
+	    	 input="/manufacturer.jsp" 
+	    	 scope="request">
+	        <forward name="success" path="/manufacturer.jsp" />
+	    </action>
+	    
+	    <action 
+    	     path="/AddProductReview" 
+    	     name="productReviewForm" 
+	    	 type="com.crudDemo.struts.action.ProductReviewAction" 
+	    	 input="/productreview.jsp" 
+	    	 scope="request">
+	        <forward name="success" path="/productreview.jsp" />
 	    </action>
 	    
 		
