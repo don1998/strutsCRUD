@@ -1,0 +1,37 @@
+[
+	{
+		"product_id": 1,
+		"Title": "Bruce Lee 1",
+		"category": "CLASSIC",
+		"artist": "Bach",
+		"album": "Musical Offering",
+		"price": 15.00,
+		"img": "bruce1.jpg"
+	},
+	{
+		"product_id": 2,
+		"Title": "Bruce Lee 2",
+		"category": "CLASSIC",
+		"artist": "Beethoven",
+		"album": "4 Sonatas for Piano",
+		"price": 13.00,
+		"img": "bruce2.jpg"
+	},	{
+		"product_id": 3,
+		"Title": "Bruce Lee 3",
+		"category": "Bruce Lee 3",
+		"artist": "Wagner",
+		"album": "Tristan und Isolde Act II",
+		"price": 13.00,
+		"img": "bruce3.jpg"
+	},
+	{
+		"product_id": 4,
+		"Title": "Bruce Lee 4",
+		"category": "Bruce Lee 4",
+		"artist": "Mozart",
+		"album": "Requiem",
+		"price": 14.20,
+		"img": "bruce4.jpg"
+	}
+]
